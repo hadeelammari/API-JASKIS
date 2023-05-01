@@ -6,6 +6,7 @@
 use jaskis
 
 // 2. Create a collection called bounties
+//This is not the right command to create a collection. The command should be db.createCollection('bounties')
 db.jaskis.insertOne('bounties')
 
 // ADD THE ANIMAL BOUNTIES
@@ -24,7 +25,7 @@ db.bounties.insertOne({
 db.bounties.find({})
 
 // 3. Insert many bounties at once using the given objects
-db.bounties.insertMany()
+db.bounties.insertMany() //Where is the data for this command?
 // MANAGE THE DATABASE
 // Queries
 // 1. Query for all bounties in the Grasslands
@@ -34,6 +35,7 @@ db.bounties.find({reward: {$gt10000}})
 // 3. Query for all bounties, but exclude the client attribute from being shown
 db.bounties.find({},{client:0})
 // 4. Query for a Groundhog in the Woodlands
+//This is not the right formate for this command. The command should be db.bounties.find({ location: "Woodlands", species: "Groundhog" })
 db.bounties.find({location: 'Woodlands'}, {species: 'Groundhog'})
 // Update and Delete
 // 1. Update the reward for Polarwind to 10000
