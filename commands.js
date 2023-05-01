@@ -98,7 +98,9 @@ db.bounties.find({reward: {$gte: 10000}})
 
 // 3. Query for all bounties, but exclude the client attribute from being shown
 
+//This is correct but it would be much easier to do it this way db.bounties.find({}, { client: 0 })
 db.bounties.find({} , {name: 1, species: 1, location: 1, wantedFor: 1, reward: 1, captured: 1})
+
 
 // 4. Query for a Groundhog in the Woodlands
 
@@ -109,6 +111,8 @@ db.bounties.find(
 // 1. Update the reward for Polarwind to 10000
 db.bounties.update({ name: "Polarwind" }, { $set : { reward : "10000" }})
 // 2. Remove Lokinkajou
+//The command is deleteOne and usually you do not have the id for the bounty so the right way to do this is 
+//db.bounties.deleteOne({ name: "Lokinkajou"})
 db.bounties.remove({ "_id" : ObjectId("644c887ed5a5e3af972c39ef") }, true)
 
 // 3. Delete all bounties sent by Songbird
