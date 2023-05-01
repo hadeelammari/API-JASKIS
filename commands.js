@@ -3,7 +3,7 @@
 
 // GETTING STARTED
 // 1. Create a database called jaskis
-//use jaskis
+use jaskis
 
 // 2. Create a collection called bounties
 db.createCollection('bounties')
@@ -22,10 +22,11 @@ db.bounties.insertOne (
     })
 
 // 2. Query for all bounties in the bounties collection
+//This will not query all the bounties. The command should be db.bounties.find()
 db.bounties.insertMany
 
 // 3. Insert many bounties at once using the given objects
-db.bounties.insertMany
+db.bounties.insertMany //This command is not complete it should have all the objects from the assginment 
 // MANAGE THE DATABASE
 // Queries
 // 1. Query for all bounties in the Grasslands
