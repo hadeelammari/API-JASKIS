@@ -21,6 +21,7 @@ db.createCollection('bounties')
   }
 
 // 2. Query for all bounties in the bounties collection
+//This will not query all the bounties in the collection. The command should be db.bounties.find()
 db.bounties.find({
     _id: ObjectId("63f2d21fab6d6c093e54e58f"),
     name: 'Thanoceros',
