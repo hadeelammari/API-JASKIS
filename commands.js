@@ -10,7 +10,9 @@ db.createCollection('bounties')
 
 // ADD THE ANIMAL BOUNTIES
 // 1. Insert the given "Thanoceros" bounty object
-{
+//Where is the command? This is just the data.
+//It should be 
+db.bounties.insertOne({
     name: "Thanoceros",
     species: "Rhinoceros",
     location: "Grasslands",
@@ -21,6 +23,7 @@ db.createCollection('bounties')
   }
 
 // 2. Query for all bounties in the bounties collection
+//This will not query all bounties. The command should be db.bounties.find()
 db.bounties.find({
     _id: ObjectId("63f2d21fab6d6c093e54e58f"),
     name: 'Thanoceros',
