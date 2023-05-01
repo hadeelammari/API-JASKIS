@@ -24,6 +24,7 @@ db.bounties.insertOne({
 db.bounties.find()
 
 // 3. Insert many bounties at once using the given objects
+//Where is the command? It should be db.bounties.insertMany([all the data you have below])
 [
     {
       "name": "Lokinkajou",
