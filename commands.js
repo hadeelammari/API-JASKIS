@@ -25,7 +25,7 @@ captured: false
 
 
 // 2. Query for all bounties in the bounties collection
-show collections
+show collections //This will return all the collections within the database. We mneed to query the bounties collection though, the command should be db.bounties.find()
 
 
 // 3. Insert many bounties at once using the given objects
@@ -94,7 +94,8 @@ db.bounties.find({ location: 'Grasslands'})
 
 
 // 2. Query for all bounties with a reward worth 10000 or more
-db.bounties.find({ reward: 10000})
+db.bounties.find({ reward: 10000}) //This will return the bounties with a reward that is exactly 10000. We should qery for bounties that has a reward of 10000 or more
+// The command should be db.bounties.find({ reward: { $gte: 10000 } })
 
 
 // 3. Query for all bounties, but exclude the client attribute from being shown
@@ -102,6 +103,8 @@ db.bounties.find({}, {client: 0})
 
 
 // 4. Query for a Groundhog in the Woodlands
+//This will only query for Groundhog not both Groundhog and Woodlands.
+//The command should be db.bounties.find({ location: "Woodlands", species: "Groundhog" })
 db.bounties.find({
 $and: [
     { species: "Groundhog"}
@@ -110,7 +113,7 @@ $and: [
 // Update and Delete
 // 1. Update the reward for Polarwind to 10000
 db.bounties.updateOne(
-{ client: "Sabertooth"},
+{ client: "Sabertooth"}, //The condition here should be name: "Polarwind"
 { $set: { reward: 10000 }}
 )
 // 2. Remove Lokinkajou
