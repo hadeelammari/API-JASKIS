@@ -10,7 +10,7 @@ db.createCollection("bounties")
 
 // ADD THE ANIMAL BOUNTIES
 // 1. Insert the given "Thanoceros" bounty object
-db.bountiesinsertOne(
+db.bounties.insertOne(
   {
     name: "Thanoceros",
     species: "Rhinoceros",
@@ -92,7 +92,8 @@ db.bounties.find({location: "Grasslands"})
 db.bounties.find({reward: {$gt: 10000} })
 
 // 3. Query for all bounties, but exclude the client attribute from being shown
-db.bounties.find({ client: { $ne: "red wolf" } })
+db.bounties.find({ client: { $ne: "red wolf" } }) //This will not execlude the client attribute 
+//The command should be db.bounties.find({}, { client: 0 })
 
 // 4. Query for a Groundhog in the Woodlands
 db.bounties.find( {
@@ -112,7 +113,7 @@ db.bounties.updateOne(
 db.bounties.deleteOne({ name: "Lokinkajou" })
 
 // 3. Delete all bounties sent by Songbird
-db.bounties.deleteOne({ client: "songbird" })
+db.bounties.deleteOne({ client: "songbird" }) //As we are deleting all the bounties sent by Songbird this command should be a deleteMany
 
 // 4. Update all captured statuses to true
 db.bounties.updateMany(
