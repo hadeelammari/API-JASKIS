@@ -93,9 +93,13 @@ db.bounties.find({ location: "grasslands" })
 db.bounties.find({ reward: { $gte: 10000 } })
 
 // 3. Query for all bounties, but exclude the client attribute from being shown
+//This wont exclude the client attribute 
+//The command should be db.bounties.find({}, { client: 0 })
 db.bounties.find({ client: { $ne: "red wolf" } })
 
 // 4. Query for a Groundhog in the Woodlands
+//This will only return the name attribute for that bounty. It also does not query for both Groundhog and Woodlands
+//The command should be db.bounties.find({ location: "Woodlands", species: "Groundhog" })
 db.bounties.findOne({ species: "Groundhog" }, { name: 1 })
 
 // Update and Delete
@@ -109,7 +113,7 @@ db.bounties.updateOne(
 db.bounties.deleteOne({ name: "Lokinkajou" })
 
 // 3. Delete all bounties sent by Songbird
-db.bounties.deleteOne({ client: "songbird" })
+db.bounties.deleteOne({ client: "songbird" }) // this should be a deleteMany as we want to delete all the bounties send by Songbird
 
 // 4. Update all captured statuses to true
 db.bounties.updateMany(
