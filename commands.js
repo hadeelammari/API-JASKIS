@@ -90,7 +90,8 @@ db.bounties.find({location: "Grasslands"})
 db.bounties.find({reward: {$gte: 10000}})
 
 // 3. Query for all bounties, but exclude the client attribute from being shown
-db.bounties.find({captured: false}, {client: 0})
+db.bounties.find({captured: false}, {client: 0}) //There should not be a condition here for captured: false. We are qerying for all bounties
+//The command should be db.bounties.find({}, { client: 0 })
 
 // 4. Query for a Groundhog in the Woodlands
 db.bounties.find({$and: [{species: "Groundhog"}, {location: "Woodlands"}]})
