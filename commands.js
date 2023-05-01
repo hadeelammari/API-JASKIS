@@ -10,10 +10,22 @@
 
 // ADD THE ANIMAL BOUNTIES
 // 1. Insert the given "Thanoceros" bounty object
-db.collectionName.insertOne({}).
+db.collectionName.insertOne({}). //You should inseart the "Thanoceros" bounty, here you are inserting an empty bounty
+//The command should be 
+db.bounties.insertOne({
+    name: "Thanoceros",
+    species: "Rhinoceros",
+    location: "Grasslands",
+    wantedFor: "Eating too much grass",
+    client: "Songbird",
+    reward: 10000,
+    captured: false
+  })
 
 // 2. Query for all bounties in the bounties collection
-db.bounties.find({bounties})
+db.bounties.find({bounties}) //This is incorrect and should give an error
+//Should be 
+db.bounties.find()
 
 
 // 3. Insert many bounties at once using the given objects
@@ -88,9 +100,14 @@ db.bounties.find({}, { client: 0 })
 db.bounties.find({ location: "Woodlands", species: "Groundhog" })
 // Update and Delete
 // 1. Update the reward for Polarwind to 10000
+//This will work in this case as there is only one record with a reward 4000. The condition should be based on the name to be more accurate
 db.bounties.updateOne(
     { reward: 4000},
-    { $set: { reward: 10000} }
+    { $set: { reward: 10000} } //this line is missing the closing paranthesis )
+//Should be 
+db.bounties.updateOne(
+    { name: "Polarwind"},
+    { $set: { reward: 10000} })
   // 2. Remove Lokinkajou
   db.bounties.deleteOne({ name: "Lokinkajou"})
 // 3. Delete all bounties sent by Songbird
