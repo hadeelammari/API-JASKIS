@@ -3,7 +3,7 @@
 
 // GETTING STARTED
 // 1. Create a database called jaskis
-dbJaskis
+use Jaskis
 
 // 2. Create a collection called bounties
 db.createCollection('bounties')
@@ -24,8 +24,6 @@ db.bounties.insertOne({
 // 2. Query for all bounties in the bounties collection
 db.bounties.find()
 
-// 3. Insert many bounties at once using the given objects
-db.bounties.find()
 
 // 3. Insert many bounties at once using the given objects
 db.bounties.insertMany([
